@@ -99,6 +99,28 @@ const Home = () => {
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </motion.span>
           ))}
+          <motion.a
+            href="/RichardFranklin_resume.pdf"
+            download="Richard_Franklin_Resume.pdf"
+            className="nav-link"
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '0.4rem', 
+              background: 'rgba(16, 185, 129, 0.1)', 
+              padding: '0.4rem 1rem', 
+              borderRadius: '20px',
+              border: '1px solid var(--accent-color)',
+              color: 'var(--accent-color)',
+              fontWeight: '600'
+            }}
+            whileHover={{ scale: 1.05, backgroundColor: 'rgba(16, 185, 129, 0.2)' }}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, ease: 'easeOut' }}
+          >
+            Resume <FaDownload size={12} />
+          </motion.a>
         </div>
       </motion.nav>
 

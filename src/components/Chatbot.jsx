@@ -1,15 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCommentDots, FaTimes, FaPaperPlane, FaWhatsapp, FaDownload } from 'react-icons/fa';
+import { FaCommentDots, FaTimes, FaPaperPlane, FaWhatsapp, FaDownload, FaBriefcase, FaGraduationCap, FaTools } from 'react-icons/fa';
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: "Hello! I'm Richard's Professional AI Assistant. Are you a recruiter or looking to collaborate? Feel free to ask about his 'experience', 'certifications', 'skills', or request his 'resume' directly!" }
+    { sender: 'bot', text: "👋 **Hello!** I'm Richard's Professional AI Assistant. How can I help you today? You can ask me anything or choose a quick option below." }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
+
+  const quickActions = [
+    { label: "Experience", query: "experience", icon: <FaBriefcase /> },
+    { label: "Skills", query: "skills", icon: <FaTools /> },
+    { label: "Education", query: "education", icon: <FaGraduationCap /> },
+    { label: "Resume", query: "resume", icon: <FaDownload /> },
+    { label: "Contact", query: "contact", icon: <FaWhatsapp /> }
+  ];
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -18,6 +26,14 @@ const Chatbot = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages, isTyping]);
+
+  const handleActionClick = (query) => {
+    setMessages(prev => [...prev, { sender: 'user', text: query }]);
+    setIsTyping(true);
+    setTimeout(() => {
+      generateBotResponse(query.toLowerCase());
+    }, 1000);
+  };
 
   const handleSend = (e) => {
     e.preventDefault();
@@ -40,29 +56,41 @@ const Chatbot = () => {
     let isResume = false;
 
     if (query.includes('experience') || query.includes('work') || query.includes('job')) {
-      botReply = "Richard brings 1.8 years of dedicated experience as an Executive Coder in HCC at Clarus RCM. He has accurately coded over 328,500 patient records, demonstrating exceptional precision, compliance, and a strong work ethic. He is highly capable and ready to add immense value to your organization!";
-    } else if (query.includes('skill')) {
-      botReply = "His core competencies include Medical Coding (HCC), advanced Data Analysis, MS Excel, and strict Quality Assurance. Backed by a Biotechnology degree, he brings a highly analytical and detail-oriented approach that guarantees high-quality results.";
+      botReply = "💼 **Richard brings 1.8 years of dedicated experience** as an Executive Coder in HCC at Clarus RCM. He has accurately coded over 328,500 patient records, demonstrating exceptional precision, compliance, and a strong work ethic. He is highly capable and ready to add immense value to your organization!";
+    } else if (query.includes('skill') || query.includes('tool') || query.includes('tech')) {
+      botReply = "🛠️ **His core competencies include** Medical Coding (HCC), advanced Data Analysis (Python), MS Excel, and strict Quality Assurance. He is also expanding his skillset into modern automation tools like **n8n** and **AI/ML** technologies to stay at the cutting edge!";
     } else if (query.includes('education') || query.includes('degree') || query.includes('study')) {
-      botReply = "Richard holds a B.Sc. in Biotechnology from St. Joseph's College (Autonomous), Trichy, where he built a solid foundation in scientific principles and analytical problem-solving.";
+      botReply = "🎓 **Richard holds a B.Sc. in Biotechnology** from St. Joseph's College (Autonomous), Trichy. This rigorous background gave him a solid foundation in scientific principles, research, and analytical problem-solving.";
     } else if (query.includes('cert')) {
-      botReply = "Richard is highly certified, showcasing his dedication to continuous learning! He has successfully completed 30+ professional certifications, including the prestigious CPC Medical Coding Certification, Java Developer Associate (JDAC-24), and rigorous biotechnology courses from NPTEL. He is a proactive learner who always stays ahead of the curve.";
+      botReply = "🏆 **Richard is highly certified!** He has successfully completed 30+ professional certifications, including the prestigious CPC Medical Coding Certification, Java Developer Associate (JDAC-24), and rigorous biotechnology courses from NPTEL. He is a proactive, lifelong learner.";
     } else if (query.includes('resume') || query.includes('cv') || query.includes('download')) {
-      botReply = "Absolutely! You can instantly download Richard's official professional resume right here. It outlines all his achievements, skills, and certifications in detail.";
+      botReply = "📄 **Absolutely!** You can instantly download Richard's official professional resume right here. It outlines all his achievements, skills, and certifications in detail.";
       isResume = true;
     } else if (query.includes('hi') || query.includes('hello') || query.includes('hey') || query.includes('about')) {
-      botReply = "Greetings! I am Richard's personal AI Assistant. Richard is an exceptional candidate blending Medical Coding expertise with a strong analytical background. What would you like to know about him? I can provide details on his 'experience', 'skills', 'certifications', or share his 'resume'.";
+      botReply = "👋 **Greetings!** I am Richard's personal AI Assistant. Richard is an exceptional candidate blending Medical Coding expertise with a strong analytical background. What would you like to know about him?";
     } else if (query.includes('project')) {
-      botReply = "Richard has successfully delivered complex projects, from comprehensive ACA/MRA compliance auditing to detailed research on bioactive quercetin. Explore the 'Projects' section to see his hands-on expertise!";
-    } else if (query.includes('contact') || query.includes('hire') || query.includes('reach')) {
-      botReply = "He would be thrilled to connect with you regarding opportunities! You can email him at richardfranklin2202@gmail.com, or for the fastest response, send him a direct WhatsApp message using the button below.";
+      botReply = "🚀 **Richard has successfully delivered complex projects**, from comprehensive ACA/MRA compliance auditing to detailed research on bioactive quercetin. Explore the 'Projects' section to see his hands-on expertise!";
+    } else if (query.includes('contact') || query.includes('hire') || query.includes('reach') || query.includes('email') || query.includes('phone')) {
+      botReply = "📫 **He would be thrilled to connect with you!** You can email him at richardfranklin2202@gmail.com, or for the fastest response, send him a direct WhatsApp message using the button below.";
       isRedirect = true;
+    } else if (query.includes('n8n') || query.includes('ai') || query.includes('ml') || query.includes('automation')) {
+      botReply = "🤖 **Yes!** Richard is actively upskilling in modern technologies like **n8n workflow automation** and **AI/ML tools**, showing his adaptability and eagerness to leverage the latest tech to solve problems efficiently.";
     } else {
-      botReply = "That's an insightful question! For a more detailed discussion or to schedule an interview, Richard would be delighted to speak with you directly. Please reach out to him on WhatsApp!";
+      botReply = "🤔 **That's an insightful question!** For a more detailed discussion or to schedule an interview, Richard would be delighted to speak with you directly. Please reach out to him on WhatsApp!";
       isRedirect = true;
     }
 
     setMessages(prev => [...prev, { sender: 'bot', text: botReply, isRedirect, isResume }]);
+  };
+
+  const renderText = (text) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return <strong key={index} style={{ color: 'var(--accent-color)' }}>{part.slice(2, -2)}</strong>;
+      }
+      return <span key={index}>{part}</span>;
+    });
   };
 
   return (
@@ -109,7 +137,7 @@ const Chatbot = () => {
                       borderBottomLeftRadius: msg.sender === 'bot' ? '2px' : '15px',
                     }}
                   >
-                    {msg.text}
+                    {renderText(msg.text)}
                   </motion.div>
                   {msg.isRedirect && (
                     <motion.a
@@ -157,6 +185,34 @@ const Chatbot = () => {
                   </motion.div>
                 </div>
               )}
+              
+              {!isTyping && messages[messages.length - 1].sender === 'bot' && (
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '5px' }}>
+                  {quickActions.map((action, idx) => (
+                    <motion.div
+                      key={idx}
+                      whileHover={{ scale: 1.05, backgroundColor: 'rgba(16, 185, 129, 0.2)' }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => handleActionClick(action.query)}
+                      style={{
+                        padding: '6px 12px',
+                        borderRadius: '20px',
+                        border: '1px solid var(--accent-color)',
+                        color: 'var(--accent-color)',
+                        fontSize: '0.8rem',
+                        cursor: 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                        background: 'rgba(16, 185, 129, 0.05)'
+                      }}
+                    >
+                      {action.icon} {action.label}
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+              
               <div ref={messagesEndRef} />
             </div>
 
