@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaEnvelope, FaChevronRight, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaChevronRight, FaExternalLinkAlt, FaDownload } from 'react-icons/fa';
 import { SiLeetcode, SiGeeksforgeeks, SiMongodb, SiExpress, SiReact, SiNodedotjs, SiPython } from 'react-icons/si';
 import { FaHackerrank, FaHtml5, FaCss3Alt, FaGitAlt } from 'react-icons/fa';
 import ProjectModal from '../components/ProjectModal';
@@ -133,6 +133,11 @@ const Home = () => {
                 <button className="btn btn-secondary" onClick={() => scrollTo('contact')}>
                   Contact Me
                 </button>
+              </Magnetic>
+              <Magnetic>
+                <a href="/RichardFranklin_resume.pdf" download="Richard_Franklin_Resume.pdf" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
+                  Resume <FaDownload size={16} />
+                </a>
               </Magnetic>
             </motion.div>
           </motion.div>
