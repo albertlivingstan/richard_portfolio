@@ -5,13 +5,13 @@ export const certificates = [
     "date": "Certified"
   },
   {
-    "img": "images/placeholder.png",
-    "title": "Microsoft Excel Professional Certificate",
+    "img": "/imag/image copy.png",
+    "title": "Java Developer Associate (JDAC-24)",
     "date": "Certified"
   },
   {
-    "img": "images/placeholder.png",
-    "title": "Introduction to Data Science",
+    "img": "/imag/image copy 2.png",
+    "title": "Tissue Engineering by IIT Madras",
     "date": "Certified"
   },
   {
@@ -51,8 +51,8 @@ export const projectsData = [
     id: 'bioactive_quercetin',
     title: 'Bioactive compound quercetin from onion in food preservative',
     desc: 'Research and extraction of bioactive compound quercetin from onions to be used as a natural food preservative.',
-    mainImg: 'dist/imag/1-s2.0-S0924224423002881-gr3.jpg',
-    images: ['dist/imag/1-s2.0-S0924224423002881-gr3.jpg'],
+    mainImg: '/imag/1-s2.0-S0924224423002881-gr3.jpg',
+    images: ['/imag/1-s2.0-S0924224423002881-gr3.jpg'],
     video: "",
     tags: ['Biotechnology', 'Research', 'Food Science']
   },

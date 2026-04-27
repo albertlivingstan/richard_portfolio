@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaEnvelope, FaChevronRight, FaExternalLinkAlt, FaDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaEnvelope, FaChevronRight, FaExternalLinkAlt, FaDownload, FaSms, FaWhatsapp } from 'react-icons/fa';
 import { SiLeetcode, SiGeeksforgeeks, SiMongodb, SiExpress, SiReact, SiNodedotjs, SiPython } from 'react-icons/si';
 import { FaHackerrank, FaHtml5, FaCss3Alt, FaGitAlt } from 'react-icons/fa';
 import ProjectModal from '../components/ProjectModal';
@@ -10,8 +10,8 @@ import Marquee from '../components/Marquee';
 import { projectsData } from '../data';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 60, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
+  hidden: { opacity: 0, y: 80, scale: 0.9 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', damping: 15, stiffness: 100, duration: 0.8 } }
 };
 
 const staggerContainer = {
@@ -48,7 +48,7 @@ const Home = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'certificates'];
+      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'certificates'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -85,7 +85,7 @@ const Home = () => {
           <img src="/richard_logo.svg" alt="Richard Logo" style={{ height: '40px', filter: 'drop-shadow(0 0 5px var(--accent-glow))' }} />
         </motion.div>
         <div className="nav-links">
-          {['home', 'about', 'skills', 'projects', 'certificates'].map((item, i) => (
+          {['home', 'about', 'experience', 'skills', 'projects', 'certificates'].map((item, i) => (
             <motion.span
               key={item}
               className={`nav-link ${activeSection === item ? 'active' : ''}`}
@@ -135,9 +135,25 @@ const Home = () => {
                 </button>
               </Magnetic>
               <Magnetic>
-                <a href="/RichardFranklin_resume.pdf" download="Richard_Franklin_Resume.pdf" className="btn btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
+                <motion.a
+                  href="/RichardFranklin_resume.pdf"
+                  download="Richard_Franklin_Resume.pdf"
+                  className="btn btn-secondary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  animate={{
+                    y: [0, -5, 0],
+                    boxShadow: ["0px 0px 0px rgba(56,189,248,0)", "0px 0px 15px rgba(56,189,248,0.5)", "0px 0px 0px rgba(56,189,248,0)"]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
                   Resume <FaDownload size={16} />
-                </a>
+                </motion.a>
               </Magnetic>
             </motion.div>
           </motion.div>
@@ -167,6 +183,22 @@ const Home = () => {
       </section>
 
       <Marquee text="MEDICAL CODING • HEALTHCARE COMPLIANCE • BIOTECHNOLOGY • DATA ANALYSIS" />
+
+      {/* Experience Section */}
+      <section id="experience" className="section">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={staggerContainer}>
+          <motion.h2 variants={fadeUp} className="section-title">My <span>Experience</span></motion.h2>
+          <motion.div variants={fadeUp} whileHover={{ scale: 1.02 }} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-color)' }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Executive Coder <span style={{ color: 'var(--accent-color)', fontSize: '1.2rem' }}>(1.8 Years)</span></h3>
+            <h4 style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>Clarus RCM</h4>
+            <ul style={{ color: 'var(--text-secondary)', lineHeight: '1.8', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+              <li>Analyzed healthcare documentation to ensure strict compliance with medical coding regulations (HCC).</li>
+              <li>Consistently maintained high accuracy in medical coding audits, improving data reliability.</li>
+              <li>Collaborated with team members to resolve complex coding scenarios efficiently and securely.</li>
+            </ul>
+          </motion.div>
+        </motion.div>
+      </section>
 
       {/* Skills Section */}
       <section id="skills" className="section">
@@ -282,6 +314,8 @@ const Home = () => {
         </motion.div>
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="social-links">
           <motion.a variants={fadeUp} whileHover={{ y: -5, backgroundColor: 'var(--accent-color)', color: '#000' }} href="mailto:richardfranklin2202@gmail.com" className="social-link" title="Email"><FaEnvelope size={20} /></motion.a>
+          <motion.a variants={fadeUp} whileHover={{ y: -5, backgroundColor: 'var(--accent-color)', color: '#000' }} href="sms:9486365812" className="social-link" title="Send SMS"><FaSms size={20} /></motion.a>
+          <motion.a variants={fadeUp} whileHover={{ y: -5, backgroundColor: 'var(--accent-color)', color: '#000' }} href="https://wa.me/9486365812" className="social-link" title="WhatsApp"><FaWhatsapp size={20} /></motion.a>
         </motion.div>
         <p>© {new Date().getFullYear()} Richard Franklin </p>
       </footer>
