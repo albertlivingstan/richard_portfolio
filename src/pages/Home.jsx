@@ -121,7 +121,7 @@ const Home = () => {
               </motion.span>
             </motion.h1>
             <motion.p variants={fadeUp} className="hero-desc">
-              Results-driven professional with experience in HCC medical coding, committed to leveraging domain expertise and analytical skills to drive organizational success.
+              Hi, I'm Richard Franklin — Medical Coder & Biotechnologist with 1.8 years at Clarus RCM.
             </motion.p>
             <motion.div variants={fadeUp} className="hero-buttons">
               <Magnetic>
@@ -152,9 +152,10 @@ const Home = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  Resume <FaDownload size={16} />
+                  Download CV <FaDownload size={16} />
                 </motion.a>
               </Magnetic>
+
             </motion.div>
           </motion.div>
 
@@ -192,10 +193,22 @@ const Home = () => {
             <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>Executive Coder <span style={{ color: 'var(--accent-color)', fontSize: '1.2rem' }}>(1.8 Years)</span></h3>
             <h4 style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>Clarus RCM</h4>
             <ul style={{ color: 'var(--text-secondary)', lineHeight: '1.8', marginLeft: '1.5rem', listStyleType: 'disc' }}>
+              <li>Coded 3,28,500+ patient records with high accuracy over 1.8 years at Clarus RCM.</li>
               <li>Analyzed healthcare documentation to ensure strict compliance with medical coding regulations (HCC).</li>
               <li>Consistently maintained high accuracy in medical coding audits, improving data reliability.</li>
               <li>Collaborated with team members to resolve complex coding scenarios efficiently and securely.</li>
             </ul>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="section">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={staggerContainer}>
+          <motion.h2 variants={fadeUp} className="section-title">My <span>Education</span></motion.h2>
+          <motion.div variants={fadeUp} whileHover={{ scale: 1.02 }} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-color)' }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>B.Sc. Biotechnology</h3>
+            <h4 style={{ color: 'var(--text-secondary)' }}>St. Joseph's College (Autonomous), Trichy • Graduated 2022</h4>
           </motion.div>
         </motion.div>
       </section>
@@ -206,16 +219,17 @@ const Home = () => {
           <motion.h2 variants={fadeUp} className="section-title">My <span>Skills</span></motion.h2>
           <div className="skills-grid">
             {[
-              { name: 'Medical Coding (HCC)', icon: <FaHtml5 />, category: 'Healthcare' },
-              { name: 'MS Excel', icon: <FaCss3Alt />, category: 'Tools' },
-              { name: 'Data Analysis', icon: <SiPython />, category: 'Analytics' },
-              { name: 'Quality Assurance', icon: <FaGitAlt />, category: 'Process' },
+              { name: 'Medical Coding (HCC)', icon: <FaHtml5 />, category: 'Healthcare', percent: 90 },
+              { name: 'MS Excel', icon: <FaCss3Alt />, category: 'Tools', percent: 80 },
+              { name: 'Data Analysis', icon: <SiPython />, category: 'Analytics', percent: 75 },
+              { name: 'Quality Assurance', icon: <FaGitAlt />, category: 'Process', percent: 85 },
             ].map((skill, index) => (
-              <motion.div key={index} variants={fadeUp} whileHover={{ y: -10, scale: 1.05, borderColor: 'var(--accent-color)', boxShadow: '0 10px 30px rgba(56,189,248,0.1)' }} className="glass skill-card">
+              <motion.div key={index} variants={fadeUp} whileHover={{ y: -10, scale: 1.05, borderColor: 'var(--accent-color)', boxShadow: '0 10px 30px rgba(56,189,248,0.1)' }} className="glass skill-card" style={{ position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, height: '4px', width: `${skill.percent}%`, backgroundColor: 'var(--accent-color)' }}></div>
                 <motion.div initial={{ rotate: 0 }} whileHover={{ rotate: 360 }} transition={{ duration: 0.6 }} className="skill-icon">{skill.icon}</motion.div>
                 <div>
                   <h3 className="skill-name">{skill.name}</h3>
-                  <p className="skill-level">{skill.category}</p>
+                  <p className="skill-level">{skill.percent}% Proficiency</p>
                 </div>
               </motion.div>
             ))}
@@ -254,6 +268,23 @@ const Home = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="testimonials" className="section">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={staggerContainer}>
+          <motion.h2 variants={fadeUp} className="section-title">Client <span>Testimonials</span></motion.h2>
+          <div className="projects-grid" style={{ gridTemplateColumns: '1fr' }}>
+            <motion.div variants={fadeUp} className="glass" style={{ padding: '2rem', fontStyle: 'italic', position: 'relative' }}>
+              <span style={{ position: 'absolute', top: '10px', left: '20px', fontSize: '4rem', color: 'rgba(56,189,248,0.2)', fontFamily: 'serif' }}>"</span>
+              <p style={{ position: 'relative', zIndex: 1, fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-secondary)' }}>
+                Richard is an exceptionally accurate medical coder. His attention to detail on the ACA/MRA projects ensured full compliance and greatly reduced audit errors. Highly recommended!
+              </p>
+              <br />
+              <strong style={{ color: 'var(--accent-color)' }}>- Senior QA Auditor, Clarus RCM</strong>
+            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -310,12 +341,30 @@ const Home = () => {
       <footer id="contact" className="footer">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} style={{ marginBottom: '2rem' }}>
           <motion.h2 variants={fadeUp} style={{ fontSize: '2rem', marginBottom: '1rem', color: 'white' }}>Get In <span style={{ color: 'var(--accent-color)' }}>Touch</span></motion.h2>
-          <motion.p variants={fadeUp} style={{ maxWidth: '500px', margin: '0 auto' }}>Looking for placement opportunities. Feel free to reach out to me for any work or suggestions!</motion.p>
+          <motion.p variants={fadeUp} style={{ maxWidth: '500px', margin: '0 auto', marginBottom: '2rem' }}>Looking for placement opportunities. Feel free to reach out to me for any work or suggestions!</motion.p>
+
+          <motion.form variants={fadeUp} className="glass" onSubmit={(e) => { e.preventDefault(); alert('Message sent successfully! Auto-reply: Thank you for reaching out, I will get back to you soon.'); e.target.reset(); }} style={{ maxWidth: '600px', margin: '0 auto', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem', textAlign: 'left', marginBottom: '3rem' }}>
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Name</label>
+              <input type="text" required style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)', color: 'white' }} />
+            </div>
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Email</label>
+              <input type="email" required style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)', color: 'white' }} />
+            </div>
+            <div>
+              <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Message</label>
+              <textarea rows="4" required style={{ width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.2)', color: 'white' }}></textarea>
+            </div>
+            <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>Send Message</button>
+          </motion.form>
         </motion.div>
+
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="social-links">
           <motion.a variants={fadeUp} whileHover={{ y: -5, backgroundColor: 'var(--accent-color)', color: '#000' }} href="mailto:richardfranklin2202@gmail.com" className="social-link" title="Email"><FaEnvelope size={20} /></motion.a>
           <motion.a variants={fadeUp} whileHover={{ y: -5, backgroundColor: 'var(--accent-color)', color: '#000' }} href="sms:9486365812" className="social-link" title="Send SMS"><FaSms size={20} /></motion.a>
           <motion.a variants={fadeUp} whileHover={{ y: -5, backgroundColor: 'var(--accent-color)', color: '#000' }} href="https://wa.me/9486365812" className="social-link" title="WhatsApp"><FaWhatsapp size={20} /></motion.a>
+          <motion.a variants={fadeUp} whileHover={{ y: -5, backgroundColor: 'var(--accent-color)', color: '#000' }} href="https://www.linkedin.com/in/richard-franklin-266317220/" target="_blank" rel="noreferrer" className="social-link" title="LinkedIn"><FaLinkedin size={20} /></motion.a>
         </motion.div>
         <p>© {new Date().getFullYear()} Richard Franklin </p>
       </footer>

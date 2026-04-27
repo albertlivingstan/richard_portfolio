@@ -1,6 +1,6 @@
 export const certificates = [
   {
-    "img": "images/placeholder.png",
+    "img": "/imag/image copy 3.png",
     "title": "CPC Medical Coding Certification",
     "date": "Certified"
   },
@@ -15,32 +15,32 @@ export const certificates = [
     "date": "Certified"
   },
   {
-    "img": "images/placeholder.png",
+    "img": "https://via.placeholder.com/400x300?text=Python+Basics",
     "title": "Python Basics for Data Science",
     "date": "Certified"
   },
   {
-    "img": "images/placeholder.png",
+    "img": "https://via.placeholder.com/400x300?text=Genes+Condition",
     "title": "Genes and human condition",
     "date": "Completed"
   },
   {
-    "img": "images/placeholder.png",
+    "img": "https://via.placeholder.com/400x300?text=Genomics+Law",
     "title": "Genomics in law",
     "date": "Completed"
   },
   {
-    "img": "images/placeholder.png",
+    "img": "https://via.placeholder.com/400x300?text=Genetic+Engineering",
     "title": "Genetic engineering",
     "date": "Completed"
   },
   {
-    "img": "images/placeholder.png",
+    "img": "https://via.placeholder.com/400x300?text=Nanotechnology",
     "title": "Nanotechnology in agriculture",
     "date": "Completed"
   },
   {
-    "img": "images/placeholder.png",
+    "img": "https://via.placeholder.com/400x300?text=Tissue+Culture",
     "title": "Tissue culture",
     "date": "Completed"
   }
@@ -60,7 +60,7 @@ export const projectsData = [
     id: 'bioplastic',
     title: 'Extraction of Bio plastic from squid fish shell',
     desc: 'Extraction of bio-plastic materials from squid fish shells and conversion into biodegradable plastic bags.',
-    mainImg: 'images/placeholder.png',
+    mainImg: 'https://via.placeholder.com/400x300?text=Bioplastic+Extraction',
     images: [],
     video: "",
     tags: ['Biotechnology', 'Environment', 'Sustainability']
@@ -69,7 +69,7 @@ export const projectsData = [
     id: 'centene_aca',
     title: 'Centene ACA/MRA',
     desc: 'Healthcare documentation and medical coding project for Centene ACA/MRA compliance.',
-    mainImg: 'images/placeholder.png',
+    mainImg: 'https://via.placeholder.com/400x300?text=Centene+ACA+MRA',
     images: [],
     video: "",
     tags: ['Medical Coding', 'HCC', 'Healthcare']
@@ -78,7 +78,7 @@ export const projectsData = [
     id: 'oscar_aca',
     title: 'Oscar ACA/MRA',
     desc: 'Healthcare documentation and medical coding project for Oscar ACA/MRA.',
-    mainImg: 'images/placeholder.png',
+    mainImg: 'https://via.placeholder.com/400x300?text=Oscar+ACA+MRA',
     images: [],
     video: "",
     tags: ['Medical Coding', 'HCC', 'Healthcare']
@@ -87,7 +87,7 @@ export const projectsData = [
     id: 'atena_mra',
     title: 'Atena MRA',
     desc: 'Healthcare documentation and medical coding project for Atena MRA.',
-    mainImg: 'images/placeholder.png',
+    mainImg: 'https://via.placeholder.com/400x300?text=Atena+MRA',
     images: [],
     video: "",
     tags: ['Medical Coding', 'HCC', 'Healthcare']
