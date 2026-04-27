@@ -5,7 +5,7 @@ import { FaCommentDots, FaTimes, FaPaperPlane, FaWhatsapp, FaDownload } from 're
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'bot', text: "Hi! I'm Richard's AI Assistant. How can I help you today? Try asking about 'experience', 'skills', or 'contact'." }
+    { sender: 'bot', text: "Hello! I'm Richard's Professional AI Assistant. Are you a recruiter or looking to collaborate? Feel free to ask about his 'experience', 'certifications', 'skills', or request his 'resume' directly!" }
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -40,25 +40,25 @@ const Chatbot = () => {
     let isResume = false;
 
     if (query.includes('experience') || query.includes('work') || query.includes('job')) {
-      botReply = "Richard is an Executive Coder with 1.8 years of experience in HCC at Clarus RCM, having coded over 3,28,500 patient records with high accuracy!";
+      botReply = "Richard brings 1.8 years of dedicated experience as an Executive Coder in HCC at Clarus RCM. He has accurately coded over 328,500 patient records, demonstrating exceptional precision, compliance, and a strong work ethic. He is highly capable and ready to add immense value to your organization!";
     } else if (query.includes('skill')) {
-      botReply = "His top skills include Medical Coding (HCC), Data Analysis, MS Excel, and Quality Assurance. He's also a Biotechnology graduate!";
+      botReply = "His core competencies include Medical Coding (HCC), advanced Data Analysis, MS Excel, and strict Quality Assurance. Backed by a Biotechnology degree, he brings a highly analytical and detail-oriented approach that guarantees high-quality results.";
     } else if (query.includes('education') || query.includes('degree') || query.includes('study')) {
-      botReply = "Richard graduated with a B.Sc. in Biotechnology from St. Joseph's College (Autonomous), Trichy in 2022.";
+      botReply = "Richard holds a B.Sc. in Biotechnology from St. Joseph's College (Autonomous), Trichy, where he built a solid foundation in scientific principles and analytical problem-solving.";
     } else if (query.includes('cert')) {
-      botReply = "Richard has completed 30+ professional certifications, including CPC Medical Coding Certification, Java Developer Associate (JDAC-24), and various Biotechnology courses from NPTEL!";
+      botReply = "Richard is highly certified, showcasing his dedication to continuous learning! He has successfully completed 30+ professional certifications, including the prestigious CPC Medical Coding Certification, Java Developer Associate (JDAC-24), and rigorous biotechnology courses from NPTEL. He is a proactive learner who always stays ahead of the curve.";
     } else if (query.includes('resume') || query.includes('cv') || query.includes('download')) {
-      botReply = "You can download Richard's official resume right here!";
+      botReply = "Absolutely! You can instantly download Richard's official professional resume right here. It outlines all his achievements, skills, and certifications in detail.";
       isResume = true;
-    } else if (query.includes('hi') || query.includes('hello') || query.includes('hey')) {
-      botReply = "Hello! Feel free to ask about Richard's portfolio, background, or certifications.";
+    } else if (query.includes('hi') || query.includes('hello') || query.includes('hey') || query.includes('about')) {
+      botReply = "Greetings! I am Richard's personal AI Assistant. Richard is an exceptional candidate blending Medical Coding expertise with a strong analytical background. What would you like to know about him? I can provide details on his 'experience', 'skills', 'certifications', or share his 'resume'.";
     } else if (query.includes('project')) {
-      botReply = "Richard has worked on ACA/MRA compliance and even researched bioactive quercetin! Check out the Projects section for more details.";
+      botReply = "Richard has successfully delivered complex projects, from comprehensive ACA/MRA compliance auditing to detailed research on bioactive quercetin. Explore the 'Projects' section to see his hands-on expertise!";
     } else if (query.includes('contact') || query.includes('hire') || query.includes('reach')) {
-      botReply = "You can email him at richardfranklin2202@gmail.com, or drop him a WhatsApp message directly using the button below!";
+      botReply = "He would be thrilled to connect with you regarding opportunities! You can email him at richardfranklin2202@gmail.com, or for the fastest response, send him a direct WhatsApp message using the button below.";
       isRedirect = true;
     } else {
-      botReply = "I'm still learning! For more detailed discussions or if you want to chat more, Richard would love to speak with you directly on WhatsApp.";
+      botReply = "That's an insightful question! For a more detailed discussion or to schedule an interview, Richard would be delighted to speak with you directly. Please reach out to him on WhatsApp!";
       isRedirect = true;
     }
 
