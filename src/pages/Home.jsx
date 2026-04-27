@@ -138,13 +138,21 @@ const Home = () => {
                 <motion.a
                   href="/RichardFranklin_resume.pdf"
                   download="Richard_Franklin_Resume.pdf"
-                  className="btn btn-secondary"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
-                  whileHover={{ scale: 1.05 }}
+                  className="btn"
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '0.5rem', 
+                    textDecoration: 'none',
+                    background: 'rgba(16, 185, 129, 0.1)',
+                    color: 'var(--accent-color)',
+                    border: '1px solid var(--accent-color)',
+                  }}
+                  whileHover={{ scale: 1.05, background: 'rgba(16, 185, 129, 0.2)' }}
                   whileTap={{ scale: 0.95 }}
                   animate={{
                     y: [0, -5, 0],
-                    boxShadow: ["0px 0px 0px rgba(56,189,248,0)", "0px 0px 15px rgba(56,189,248,0.5)", "0px 0px 0px rgba(56,189,248,0)"]
+                    boxShadow: ["0px 0px 0px rgba(16,185,129,0)", "0px 0px 15px rgba(16,185,129,0.4)", "0px 0px 0px rgba(16,185,129,0)"]
                   }}
                   transition={{
                     duration: 2,

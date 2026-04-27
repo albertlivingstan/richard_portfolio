@@ -442,6 +442,20 @@
   }
   
   .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding-bottom: 4rem; /* Extra padding so the chat button doesn't overlap */
+  }
+  
+  .hero-buttons > div {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
     justify-content: center;
   }
 
