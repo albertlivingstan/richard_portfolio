@@ -52,7 +52,7 @@ export const projectsData = [
     title: 'Bioactive compound quercetin from onion in food preservative',
     desc: 'Research and extraction of bioactive compound quercetin from onions to be used as a natural food preservative.',
     mainImg: 'dist/imag/1-s2.0-S0924224423002881-gr3.jpg',
-    images: ['dist/imag/WhatsApp Image 2024-03-02 at 12.01.42.jpeg'],
+    images: ['dist/imag/1-s2.0-S0924224423002881-gr3.jpg'],
     video: "",
     tags: ['Biotechnology', 'Research', 'Food Science']
   },
